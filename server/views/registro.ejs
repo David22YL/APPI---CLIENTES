@@ -1,0 +1,118 @@
+<!--Autor: David Jostyn Yupanqui Llamacuri-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAPIMONEY - PRUEBA CLIENTES</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+</head>
+
+<!--Mi hoja de estilos no me funciona, asi que los estilos lo hice en este mismo archivo-->
+<style>
+    body {
+        font-family: 'Montserrat';
+        background-color: #e4e4e5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header {
+        background-color: #153f59;
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+    #clientes{
+        width: 90%;
+        border-collapse: collapse;
+        margin-top: 1em;
+    }
+    #registro{
+        background-color: #012e46;
+        color: white;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        font-size: 13px;
+    }
+    #btn-registro{
+        padding: 7px 10px;
+        font-size: 12px;
+        background-color: #012e46;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+    #btn-inicio{
+        padding: 7px 10px;
+        font-size: 12px;
+        background-color: #012e46;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        text-decoration: none  ;
+    }
+    #btns{
+        justify-content: center;
+    }
+</style>
+
+<body>
+
+<header>
+    <h1>REGISTRO DE NUEVOS CLIENTES - RAPIMONEY</h1>
+</header>
+
+<!--Un form método Post para registrar un cliente nuevo-->
+<form action="/registro" method="post">
+    <table id="clientes">
+        <tr id="registro">
+            <th colspan="2">REGISTRAR</th>
+        </tr>
+        <tr>
+            <th>DNI</th>
+            <td><label for="dni"></label><input type="number" name="dni" required></td>
+        </tr>
+        <tr>
+            <th>Nombres</th>
+            <td><label for="nombres"></label><input type="text" name="nombres" required></td>
+        </tr>
+        <tr>
+            <th>Apellidos</th>
+            <td><label for="apellidos"></label><input type="text" name="apellidos" required></td>
+        </tr>
+        <tr>
+            <th>Fecha de Nacimiento</th>
+            <td><label for="fecha_nacimiento"></label><input type="date" name="fecha_nacimiento" required></td>
+        </tr>
+        <tr>
+            <th>Celular</th>
+            <td><label for="celular"></label><input type="number" name="celular" required></td>
+        </tr>
+        <tr>
+            <th>Correo</th>
+            <td><label for="correo"></label><input type="text" name="correo" required></td>
+        </tr>
+        <tr>
+            <th>Banco</th> 
+            <td><label for="banco"></label><input type="text" name="banco" required></td>
+        </tr>
+        <tr>
+            <th>Número de Cuenta - CCI</th>
+            <td><label for="numero_cci"></label><input type="number" name="numero_cci" required></td>
+        </tr>
+    </table>
+
+    <div id="btns">
+        <button type="submit" id="btn-registro">Registrar Cliente</button>
+        <a class="button-link" id="btn-inicio" href="/">Inicio</a>
+    </div>
+
+</form>
+</body>
+</html>

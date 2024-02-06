@@ -1,0 +1,125 @@
+<!--Autor: David Jostyn Yupanqui Llamacuri-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAPIMONEY - PRUEBA CLIENTES</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+</head>
+
+<body>
+
+<!--Mi hoja de estilos no me funciona, asi que los estilos lo hice en este mismo archivo-->
+<style>
+    body {
+        font-family: 'Montserrat';
+        background-color: #e4e4e5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header {
+        background-color: #153f59;
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+    #clientes{
+        width: 70%;
+        border-collapse: collapse;
+        margin-top: 1em;
+    }
+    #cabeza{
+        background-color: #012e46;
+        color: white;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        font-size: 13px;
+    }
+    .nav-links {
+        display: flex;
+        justify-content: space-around;
+        width: 50%; 
+        margin-top: 20px; 
+    }
+    .button-link {
+        padding: 7px 10px;
+        background-color: #012e46;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    #filtro {
+        padding: 5px;
+        font-size: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    #btn-filtro{
+        padding: 7px 10px;
+        font-size: 12px;
+        background-color: #012e46;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<header>
+    <h1>REGISTRO DE CLIENTES - RAPIMONEY</h1>
+</header>
+
+<h1>Clientes Registrados</h1>
+
+<!--Un form método GET para poder filtrar por el DNI y el Nombre-->
+<form action="/" method="get">
+    <input type="text" id="filtro" name="filtro" placeholder="Ingrese DNI o Nombre">
+    <button type="submit" id="btn-filtro">Filtrar</button>
+</form>
+
+<table id="clientes">
+    <thead>
+        <tr id="cabeza">
+            <th>DNI</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Banco</th> 
+            <th>Número de Cuenta - CCI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Inicio del bucle para cada cliente en el array 'clientes'-->
+        <% clientes.forEach(cliente => { %> 
+
+            <!--Verificación del filtro-->
+            <% if (!filtro || cliente.dni.toString().includes(filtro) || cliente.nombres.toLowerCase().includes(filtro.toLowerCase())) { %> 
+                <tr>
+                    <!--Celdas para mostrar cada dato de cada cliente-->
+                    <td><span> <%= cliente.dni %></span></td>
+                    <td><span> <%= cliente.nombres %></span></td>
+                    <td><span> <%= cliente.apellidos %></span></td>
+                    <td><span> <%= cliente.fecha_nacimiento %></span></td>
+                    <td><span> <%= cliente.celular %></span></td>
+                    <td><span> <%= cliente.correo %></span></td>
+                    <td><span> <%= cliente.banco %></span></td>
+                    <td><span> <%= cliente.numero_cci %></span></td>
+                </tr>
+            <% } %><!--Fin de la condición del filtro-->
+        <% }); %><!--Fin del bucle para cada cliente-->
+    </tbody>
+</table>
+
+<div class="nav-links">
+    <a class="button-link" href="/registro">Registrar nuevo cliente</a>
+    <a class="button-link" id="btn-inicio" href="/">Inicio</a>
+</div>    
+
+</body>
+</html>
